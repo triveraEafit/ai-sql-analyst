@@ -10,8 +10,11 @@ import com.aisqlanalyst.service.QueryFailedException;
 import com.aisqlanalyst.service.QuestionTooLongException;
 import com.aisqlanalyst.service.StatementTimeoutException;
 import com.aisqlanalyst.sql.ValidationException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -52,6 +55,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
     /** {@link QuestionTooLongException} &rarr; HTTP 400 (Requirement 1.2). */
     @ExceptionHandler(QuestionTooLongException.class)
     public ResponseEntity<ErrorResponse> handleQuestionTooLong(QuestionTooLongException ex) {
@@ -63,6 +68,13 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleInvalidBody(MethodArgumentNotValidException ex) {
         // Do not echo field errors verbatim; a fixed safe summary avoids leaking internals.
         return build(HttpStatus.BAD_REQUEST, "bad_request", "Question must not be blank.");
+    }
+
+    /** Missing or malformed JSON request body &rarr; HTTP 400 (safe, generic message). */
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<ErrorResponse> handleUnreadableBody(HttpMessageNotReadableException ex) {
+        // Never echo the parser message: it can reveal internal field/structure details.
+        return build(HttpStatus.BAD_REQUEST, "invalid_request", "Request body is missing or malformed.");
     }
 
     /** {@link ValidationException} &rarr; HTTP 422 (Requirement 4.8). */
@@ -119,6 +131,8 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleUnexpected(Exception ex) {
+        // Log server-side for operators; the response body stays generic (no internals leaked).
+        log.error("Unhandled exception mapped to HTTP 500", ex);
         return build(HttpStatus.INTERNAL_SERVER_ERROR, "internal_error", "An unexpected error occurred.");
     }
 

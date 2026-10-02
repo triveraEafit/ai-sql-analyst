@@ -60,7 +60,7 @@ Backend is Spring Boot (Java) with spring-boot-starter-web, -validation, -jdbc, 
 - [x] 12. Implement the web layer (controller, advice, filters)
   - [x] 12.1 Query_Controller (POST /api/query, GET /api/history). _Requirements: 1.1,7.1,12.1_
   - [x] 12.2 Global Controller_Advice mapping (400/422/504/502/503, safe bodies). _Requirements: 11.2,11.3,12.4,1.2,1.3,4.8,5.2,5.4,8.2-8.7_
-  - [x] 12.3 CorsFilter at HIGHEST_PRECEDENCE for Frontend_Origin. _Requirements: 10.6_
+  - [ ] 12.3 CorsFilter at HIGHEST_PRECEDENCE for Frontend_Origin. _Requirements: 10.6_
   - [x] 12.4 Per-IP RateLimitFilter (in-memory fixed window) -> 429, below CORS precedence; trust-proxy aware. _Requirements: 9.1,9.2_
   - [ ]* 12.5 Unit tests for RateLimitFilter and advice safety. _Requirements: 9.1,9.2,11.2,11.3_
 

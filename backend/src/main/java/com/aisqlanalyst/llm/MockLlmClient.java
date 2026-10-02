@@ -51,6 +51,12 @@ public class MockLlmClient implements LlmClient {
     public LlmResult generateSql(String question, String schemaContext, String errorHint) {
         String q = question == null ? "" : question.toLowerCase(Locale.ROOT);
 
+        // Demo-only trigger: a question mentioning "drop table" makes the mock emit an unsafe,
+        // non-SELECT statement so the Sql_Validator rejection path (HTTP 422) can be exercised
+        // end-to-end in mock mode. The validator rejects this; it is never executed.
+        if (q.contains("drop table")) {
+            return dropTableAttempt();
+        }
         if (containsAll(q, "top", "customer") || (q.contains("customer") && q.contains("spend"))) {
             return topCustomersBySpending();
         }
@@ -133,6 +139,15 @@ public class MockLlmClient implements LlmClient {
                 + "ORDER BY customer_count DESC";
         return new LlmResult(sql,
                 "Counts how many customers belong to each country, most populous first.");
+    }
+
+    /**
+     * Demo-only: returns a dangerous non-SELECT statement so the Sql_Validator rejection (422) can
+     * be shown end-to-end in mock mode. The validator always rejects this; it never reaches the DB.
+     */
+    private static LlmResult dropTableAttempt() {
+        return new LlmResult("DROP TABLE customers",
+                "Attempts to drop a table; the validator rejects this as it is not a read-only SELECT.");
     }
 
     /** Safe default for an unrecognised question: a simple customer count. */

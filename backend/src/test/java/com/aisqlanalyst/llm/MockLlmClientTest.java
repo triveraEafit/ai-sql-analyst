@@ -2,12 +2,14 @@ package com.aisqlanalyst.llm;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import com.aisqlanalyst.sql.SqlValidator;
+import com.aisqlanalyst.sql.ValidationException;
 
 /**
  * Plain JUnit 5 unit tests for {@link MockLlmClient} (task 8.2). No Spring context, database or
@@ -66,5 +68,14 @@ class MockLlmClientTest {
 
         assertThat(retry.sql()).isEqualTo(initial.sql());
         assertThatCode(() -> validator.validate(retry.sql())).doesNotThrowAnyException();
+    }
+    @Test
+    void dropTableQuestion_returnsUnsafeSql_rejectedByValidator() {
+        // The demo trigger returns a non-SELECT statement; the validator must reject it (422 path).
+        LlmResult result = mock.generateSql("please drop table customers now", schema);
+
+        assertThat(result.sql()).isEqualToIgnoringCase("DROP TABLE customers");
+        assertThatThrownBy(() -> validator.validate(result.sql()))
+                .isInstanceOf(ValidationException.class);
     }
 }

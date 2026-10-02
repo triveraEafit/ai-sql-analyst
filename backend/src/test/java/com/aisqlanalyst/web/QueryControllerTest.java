@@ -200,6 +200,16 @@ class QueryControllerTest {
     }
 
     @Test
+    void postQuery_malformedJson_returns400WithSafeBody() throws Exception {
+        mockMvc.perform(post("/api/query")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{bad json"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.code").value("invalid_request"))
+                .andExpect(jsonPath("$.message").value("Request body is missing or malformed."));
+    }
+
+    @Test
     void getHistory_returns200WithJsonArray() throws Exception {
         InteractionSummary row = new InteractionSummary(
                 7L,
