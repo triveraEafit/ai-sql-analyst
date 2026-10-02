@@ -124,6 +124,11 @@
         "executionId": "0d4c972f-52bc-4aff-a16e-75a6a6b6ee43",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790911208769
+      },
+      {
+        "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790913573914
       }
     ],
     "4.1 Create QueryRequest (@NotBlank, no @Size), QueryResponse(table,sql,explanation), InteractionSummary(generatedSql,status,latencyMs,createdAt), ErrorResponse. _Requirements: 12.3,1.1,7.1_": [
@@ -131,6 +136,16 @@
         "executionId": "0d4c972f-52bc-4aff-a16e-75a6a6b6ee43",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790910115944
+      },
+      {
+        "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790913578751
+      },
+      {
+        "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790913719429
       }
     ],
     "4.2 Manual Max_Question_Length check + QuestionTooLongException -> 400. _Requirements: 1.2,1.3,10.2_": [
@@ -138,6 +153,16 @@
         "executionId": "0d4c972f-52bc-4aff-a16e-75a6a6b6ee43",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790910116002
+      },
+      {
+        "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790913722944
+      },
+      {
+        "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790914028961
       }
     ],
     "5.1 Core validation rules (single statement, SELECT-only, schema-qualified allowlisted tables, reject SELECT INTO, reject locking clauses, default-deny function allowlist, SetOperationList/UNION traversal). _Requirements: 4.1-4.8_": [
@@ -369,6 +394,20 @@
         "executionId": "0d4c972f-52bc-4aff-a16e-75a6a6b6ee43",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790910956827
+      }
+    ],
+    "3. Configure dual Hikari datasources and transaction managers": [
+      {
+        "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790913574009
+      }
+    ],
+    "4. Define DTOs and request-shape validation": [
+      {
+        "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790914029071
       }
     ]
   }

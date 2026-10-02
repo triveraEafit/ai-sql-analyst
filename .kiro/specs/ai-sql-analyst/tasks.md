@@ -20,13 +20,13 @@ Backend is Spring Boot (Java) with spring-boot-starter-web, -validation, -jdbc, 
   - [x] 2.1 Write schema and seed SQL files (customers, products, orders, order_items; interactions with generated_sql nullable, status, latency_ms, created_at); seed >=2000 rows. _Requirements: 2.1,2.2,2.3_
   - [x] 2.2 Write 01-init.sh wrapper reading RO_DB_PASSWORD; run schema/seed via psql; create read_only_role; GRANT SELECT only on allowlisted tables; withhold all privileges on interactions. _Requirements: 2.4,2.5_
 
-- [ ] 3. Configure dual Hikari datasources and transaction managers
+- [x] 3. Configure dual Hikari datasources and transaction managers
   - [x] 3.1 Define RW and RO DataSource beans (jdbc-url) + a tx manager each, naming the read-only one readOnlyTxManager. _Requirements: 3.1,3.2_
-  - [ ] 3.2 Integration test for datasource separation. _Requirements: 3.1,3.2,3.3,3.4_
+  - [x] 3.2 Integration test for datasource separation. _Requirements: 3.1,3.2,3.3,3.4_
 
-- [ ] 4. Define DTOs and request-shape validation
-  - [ ] 4.1 Create QueryRequest (@NotBlank, no @Size), QueryResponse(table,sql,explanation), InteractionSummary(generatedSql,status,latencyMs,createdAt), ErrorResponse. _Requirements: 12.3,1.1,7.1_
-  - [ ] 4.2 Manual Max_Question_Length check + QuestionTooLongException -> 400. _Requirements: 1.2,1.3,10.2_
+- [x] 4. Define DTOs and request-shape validation
+  - [x] 4.1 Create QueryRequest (@NotBlank, no @Size), QueryResponse(table,sql,explanation), InteractionSummary(generatedSql,status,latencyMs,createdAt), ErrorResponse. _Requirements: 12.3,1.1,7.1_
+  - [x] 4.2 Manual Max_Question_Length check + QuestionTooLongException -> 400. _Requirements: 1.2,1.3,10.2_
 
 - [ ] 5. Implement the Sql_Validator (JSqlParser AST)
   - [ ] 5.1 Core validation rules (single statement, SELECT-only, schema-qualified allowlisted tables, reject SELECT INTO, reject locking clauses, default-deny function allowlist, SetOperationList/UNION traversal). _Requirements: 4.1-4.8_
