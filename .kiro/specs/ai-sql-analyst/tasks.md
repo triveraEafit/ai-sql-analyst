@@ -32,13 +32,13 @@ Backend is Spring Boot (Java) with spring-boot-starter-web, -validation, -jdbc, 
   - [x] 5.1 Core validation rules (single statement, SELECT-only, schema-qualified allowlisted tables, reject SELECT INTO, reject locking clauses, default-deny function allowlist, SetOperationList/UNION traversal). _Requirements: 4.1-4.8_
   - [x] 5.2 JUnit example tests for Sql_Validator (5 cases). _Requirements: 14.1,4.1,4.2,4.3,4.6,4.7_
 
-- [ ] 6. Checkpoint - validator tests green
+- [x] 6. Checkpoint - validator tests green
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 7. Implement the Sql_Executor (read-only, bounded)
-  - [ ] 7.1 Bounded read-only execution (@Transactional readOnly, transactionManager="readOnlyTxManager"; SET LOCAL statement_timeout; run parsed statement.toString() wrapped in LIMIT subquery; JDBC maxRows). _Requirements: 4.9,3.2,10.3,10.4_
-  - [ ] 7.2 SQLState error classification (class 42 except 42501 correctable; 57014 timeout). Unwrap Spring's DataAccessException to the root java.sql.SQLException and read the SQLState from that root exception, never from the Spring wrapper. _Requirements: 5.1,5.2,5.4_
-  - [ ] 7.3 Integration tests for executor bounds and classification. _Requirements: 4.9,10.3,10.4,5.2_
+- [x] 7. Implement the Sql_Executor (read-only, bounded)
+  - [x] 7.1 Bounded read-only execution (@Transactional readOnly, transactionManager="readOnlyTxManager"; SET LOCAL statement_timeout; run parsed statement.toString() wrapped in LIMIT subquery; JDBC maxRows). _Requirements: 4.9,3.2,10.3,10.4_
+  - [x] 7.2 SQLState error classification (class 42 except 42501 correctable; 57014 timeout). Unwrap Spring's DataAccessException to the root java.sql.SQLException and read the SQLState from that root exception, never from the Spring wrapper. _Requirements: 5.1,5.2,5.4_
+  - [x] 7.3 Integration tests for executor bounds and classification. _Requirements: 4.9,10.3,10.4,5.2_
 
 - [ ] 8. Implement the Llm_Client and Schema_Context
   - [ ] 8.1 Define LlmClient interface + LlmResult; build Schema_Context (allowlisted tables + columns) at startup from the SAME schema definition used by the seed/init (single source of truth) so the context and the actual database schema cannot drift. _Requirements: 1.4_

@@ -204,6 +204,11 @@
         "executionId": "0d4c972f-52bc-4aff-a16e-75a6a6b6ee43",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790910116174
+      },
+      {
+        "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790914859372
       }
     ],
     "7.1 Bounded read-only execution (@Transactional readOnly, transactionManager=\"readOnlyTxManager\"; SET LOCAL statement_timeout; run parsed statement.toString() wrapped in LIMIT subquery; JDBC maxRows). _Requirements: 4.9,3.2,10.3,10.4_": [
@@ -211,6 +216,16 @@
         "executionId": "0d4c972f-52bc-4aff-a16e-75a6a6b6ee43",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790910116225
+      },
+      {
+        "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790914874624
+      },
+      {
+        "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790915445320
       }
     ],
     "7.2 SQLState error classification (class 42 except 42501 correctable; 57014 timeout). Unwrap Spring's DataAccessException to the root java.sql.SQLException and read the SQLState from that root exception, never from the Spring wrapper. _Requirements: 5.1,5.2,5.4_": [
@@ -218,6 +233,16 @@
         "executionId": "0d4c972f-52bc-4aff-a16e-75a6a6b6ee43",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790910116286
+      },
+      {
+        "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790915449822
+      },
+      {
+        "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790915806613
       }
     ],
     "7.3 Integration tests for executor bounds and classification. _Requirements: 4.9,10.3,10.4,5.2_": [
@@ -225,6 +250,16 @@
         "executionId": "0d4c972f-52bc-4aff-a16e-75a6a6b6ee43",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790910116351
+      },
+      {
+        "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790915810664
+      },
+      {
+        "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790916209977
       }
     ],
     "8.1 Define LlmClient interface + LlmResult; build Schema_Context (allowlisted tables + columns) at startup from the SAME schema definition used by the seed/init (single source of truth) so the context and the actual database schema cannot drift. _Requirements: 1.4_": [
@@ -435,6 +470,13 @@
         "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790914804510
+      }
+    ],
+    "7. Implement the Sql_Executor (read-only, bounded)": [
+      {
+        "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790916210167
       }
     ]
   }
