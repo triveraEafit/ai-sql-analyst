@@ -1,0 +1,9 @@
+# Node / Next.js (repo root .gitignore also covers these; kept local for clarity)
+/node_modules
+/.next
+/out
+/build
+next-env.d.ts
+*.tsbuildinfo
+.env
+.env.local
