@@ -5,6 +5,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -89,6 +90,7 @@ public class HttpLlmClient implements LlmClient {
      * Production constructor: builds the {@link RestClient} from {@link AppProperties}, applying the
      * base URL, the {@code Authorization: Bearer} header, and connect/read timeouts from Llm_Timeout.
      */
+    @Autowired
     public HttpLlmClient(AppProperties properties) {
         this(properties, RestClient.builder());
     }
