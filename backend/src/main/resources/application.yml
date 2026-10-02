@@ -1,0 +1,79 @@
+# ===========================================================================
+# AI SQL Analyst - backend configuration
+#
+# Secrets and deployment-specific values come from environment variables
+# (Requirement 10.1). Tunables live under `app.*` with sensible defaults
+# (Requirement 10.2-10.6). The @ConfigurationProperties binding classes that
+# consume `app.*` are implemented in task 1.2; this file only establishes the
+# YAML structure and the two datasource prefixes.
+# ===========================================================================
+
+spring:
+  application:
+    name: ai-sql-analyst-backend
+
+  # The default DataSource auto-configuration is excluded on the main class
+  # because this app defines two explicit datasources (read-write + read-only)
+  # in task 3. Listing it here as well keeps the intent discoverable in config.
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+# ---------------------------------------------------------------------------
+# Datasource prefixes (Change 7).
+#
+# Both Hikari datasources point at the SAME PostgreSQL instance but authenticate
+# as different roles. They use the Spring `jdbc-url` property (NOT `url`) because
+# DataSourceBuilder with HikariCP binds the connection string from `jdbc-url`.
+#
+#   - datasource.read-write : app role, used ONLY for the Interactions_Table.
+#   - datasource.read-only  : Read_Only_Role, used ONLY to run generated SQL.
+#
+# The @Bean DataSources and transaction managers (incl. readOnlyTxManager) are
+# defined in task 3; these prefixes supply their properties.
+# ---------------------------------------------------------------------------
+datasource:
+  read-write:
+    jdbc-url: ${DB_URL}
+    username: ${DB_RW_USER}
+    password: ${DB_RW_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  read-only:
+    jdbc-url: ${DB_URL}
+    username: ${DB_RO_USER}
+    password: ${DB_RO_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+# ---------------------------------------------------------------------------
+# Application tunables (Requirement 10). Binding classes arrive in task 1.2.
+# ---------------------------------------------------------------------------
+app:
+  # Max_Question_Length: default 300 characters, configurable (10.2).
+  max-question-length: 300
+  # Enforced_Limit: default 100 result rows, configurable (10.3).
+  enforced-limit: 100
+  # Statement_Timeout: default 5 seconds, configurable (10.4).
+  statement-timeout: 5s
+
+  llm:
+    # http -> HttpLlmClient (default); mock -> MockLlmClient (Change 11).
+    provider: ${LLM_PROVIDER:http}
+    # Llm_Timeout per provider call, configurable (10.5).
+    timeout: ${LLM_TIMEOUT:20s}
+    # Provider details; required only when provider != mock (validated in task 1.3).
+    api-key: ${LLM_API_KEY:}
+    base-url: ${LLM_BASE_URL:}
+    model: ${LLM_MODEL:}
+
+  rate-limit:
+    # Rate_Limit per client IP per minute, configurable (9.2).
+    requests-per-minute: 30
+    # Trust a forwarded header for the real client IP; default OFF (Change 12).
+    trust-proxy: false
+
+  cors:
+    # Frontend_Origin permitted by CORS (10.6).
+    frontend-origin: ${FRONTEND_ORIGIN}
+
+server:
+  port: 8080

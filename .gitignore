@@ -1,0 +1,94 @@
+﻿# ===========================================================================
+# AI SQL Analyst - repository .gitignore
+# Covers backend (Spring Boot / Maven + Gradle), frontend (Next.js), local
+# env files, and common IDE/OS artifacts. See requirement 15.5.
+# ===========================================================================
+
+# ---------------------------------------------------------------------------
+# Local environment files (secrets) - never commit these.
+# NOTE: .env.example IS committed (see task 16.5), so it is explicitly
+# un-ignored below.
+# ---------------------------------------------------------------------------
+.env
+.env.*
+*.env
+!.env.example
+
+# ---------------------------------------------------------------------------
+# Backend - Spring Boot (Java)
+# ---------------------------------------------------------------------------
+# Maven
+target/
+
+# Gradle
+build/
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Compiled / packaged artifacts
+*.class
+*.jar
+!**/.mvn/wrapper/maven-wrapper.jar
+*.war
+*.ear
+!**/gradle/wrapper/gradle-wrapper.jar
+
+# Spring Boot / Java logs
+*.log
+hs_err_pid*
+replay_pid*
+
+# ---------------------------------------------------------------------------
+# Frontend - Next.js (TypeScript) + Tailwind
+# ---------------------------------------------------------------------------
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# Next.js build output
+.next/
+out/
+next-env.d.ts
+
+# Production build / misc
+/build
+dist/
+
+# Testing / coverage
+coverage/
+
+# Package manager debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-debug.log*
+
+# TypeScript
+*.tsbuildinfo
+
+# Vercel
+.vercel
+
+# ---------------------------------------------------------------------------
+# IDEs / editors
+# ---------------------------------------------------------------------------
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+*.swo
+
+# ---------------------------------------------------------------------------
+# Operating system files
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini

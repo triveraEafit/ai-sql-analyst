@@ -1,0 +1,67 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "0.1 Create a repository `.gitignore` covering the backend (e.g. `target/`, `build/`), the frontend (e.g. `node_modules/`, `.next/`), and local env files (e.g. `.env`). _Requirements: 15.5_": [
+      {
+        "executionId": "9a10a547-d64b-4cbf-8030-b289cb2e2a5f",
+        "chatSessionId": "sess_8a4ed93e-3917-4f3e-b2aa-7e623c9b7e97",
+        "timestamp": 1790908437158
+      },
+      {
+        "executionId": "9a10a547-d64b-4cbf-8030-b289cb2e2a5f",
+        "chatSessionId": "sess_8a4ed93e-3917-4f3e-b2aa-7e623c9b7e97",
+        "timestamp": 1790908565130
+      }
+    ],
+    "0. Repository setup": [
+      {
+        "executionId": "9a10a547-d64b-4cbf-8030-b289cb2e2a5f",
+        "chatSessionId": "sess_8a4ed93e-3917-4f3e-b2aa-7e623c9b7e97",
+        "timestamp": 1790908565378
+      }
+    ],
+    "1.1 Create backend project skeleton and build file (deps: web, validation, jdbc, PostgreSQL driver, JSqlParser; tests JUnit 5); main @SpringBootApplication + application.yml with app.* props and two jdbc-url datasource prefixes. _Requirements: 12.1, 12.2_": [
+      {
+        "executionId": "fac8d40b-6035-46ad-ae5c-911a1015554d",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790908634835
+      },
+      {
+        "executionId": "fac8d40b-6035-46ad-ae5c-911a1015554d",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790909096085
+      }
+    ],
+    "1.2 Implement @Validated @ConfigurationProperties for all tunables (max-question-length=300, enforced-limit=100, statement-timeout=5s, llm.timeout, rate-limit.requests-per-minute=30, rate-limit.trust-proxy=off, cors.frontend-origin, llm.provider). _Requirements: 10.2,10.3,10.4,10.5,10.6,9.2_": [
+      {
+        "executionId": "fac8d40b-6035-46ad-ae5c-911a1015554d",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790909102075
+      },
+      {
+        "executionId": "fac8d40b-6035-46ad-ae5c-911a1015554d",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790909382704
+      }
+    ],
+    "1.3 Fail-fast startup validation of required env vars (DB_URL, DB_RW_USER, DB_RW_PASSWORD, DB_RO_USER, DB_RO_PASSWORD, FRONTEND_ORIGIN always; LLM_API_KEY/LLM_BASE_URL/LLM_MODEL required only when LLM_PROVIDER != mock); name the missing variable. _Requirements: 11.1, 10.1_": [
+      {
+        "executionId": "fac8d40b-6035-46ad-ae5c-911a1015554d",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790909103911
+      },
+      {
+        "executionId": "fac8d40b-6035-46ad-ae5c-911a1015554d",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790909707928
+      }
+    ],
+    "1. Scaffold Spring Boot backend project and configuration binding": [
+      {
+        "executionId": "fac8d40b-6035-46ad-ae5c-911a1015554d",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790909708014
+      }
+    ]
+  }
+}

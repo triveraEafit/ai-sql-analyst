@@ -1,0 +1,7 @@
+﻿# ===========================================================================
+# AI SQL Analyst - line-ending normalization
+# Keep shell scripts and the Maven wrapper LF so they run on Linux/CI and in
+# containers regardless of the OS they were committed from.
+# ===========================================================================
+*.sh text eol=lf
+mvnw text eol=lf
