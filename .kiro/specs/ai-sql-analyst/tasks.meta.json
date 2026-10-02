@@ -267,6 +267,16 @@
         "executionId": "0d4c972f-52bc-4aff-a16e-75a6a6b6ee43",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790910116396
+      },
+      {
+        "executionId": "562dd331-db51-4e77-adc1-73e5f749b573",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790916891458
+      },
+      {
+        "executionId": "562dd331-db51-4e77-adc1-73e5f749b573",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790917232966
       }
     ],
     "8.2 Implement optional MockLlmClient via LLM_PROVIDER=mock. The mock MUST return valid, parseable SQL answers for the 4-5 example questions so the frontend example questions work end-to-end in mock mode. _Requirements: 1.4_": [
@@ -274,6 +284,16 @@
         "executionId": "0d4c972f-52bc-4aff-a16e-75a6a6b6ee43",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790910116444
+      },
+      {
+        "executionId": "562dd331-db51-4e77-adc1-73e5f749b573",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790917237107
+      },
+      {
+        "executionId": "562dd331-db51-4e77-adc1-73e5f749b573",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790917593246
       }
     ],
     "8.3 Implement HttpLlmClient (Llm_Timeout; parse {sql,explanation}; failure mapping 502/503); HttpLlmClient is the default when LLM_PROVIDER != mock. _Requirements: 8.1-8.7_": [
@@ -281,6 +301,16 @@
         "executionId": "0d4c972f-52bc-4aff-a16e-75a6a6b6ee43",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790910116498
+      },
+      {
+        "executionId": "562dd331-db51-4e77-adc1-73e5f749b573",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790917597403
+      },
+      {
+        "executionId": "562dd331-db51-4e77-adc1-73e5f749b573",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790918022245
       }
     ],
     "9.1 InteractionRepository (JdbcTemplate, RW datasource): save + findRecent(50) newest-first; generated_sql nullable. _Requirements: 6.1-6.4,7.1,7.2,3.1_": [
@@ -477,6 +507,25 @@
         "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790916210167
+      }
+    ],
+    "8. Implement the Llm_Client and Schema_Context": [
+      {
+        "executionId": "562dd331-db51-4e77-adc1-73e5f749b573",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790918022381
+      }
+    ],
+    "8.4 Unit tests for HttpLlmClient failure mapping. _Requirements: 8.2-8.7_": [
+      {
+        "executionId": "562dd331-db51-4e77-adc1-73e5f749b573",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790918032494
+      },
+      {
+        "executionId": "562dd331-db51-4e77-adc1-73e5f749b573",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790918036285
       }
     ]
   }

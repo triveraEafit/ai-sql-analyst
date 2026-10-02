@@ -40,11 +40,11 @@ Backend is Spring Boot (Java) with spring-boot-starter-web, -validation, -jdbc, 
   - [x] 7.2 SQLState error classification (class 42 except 42501 correctable; 57014 timeout). Unwrap Spring's DataAccessException to the root java.sql.SQLException and read the SQLState from that root exception, never from the Spring wrapper. _Requirements: 5.1,5.2,5.4_
   - [x] 7.3 Integration tests for executor bounds and classification. _Requirements: 4.9,10.3,10.4,5.2_
 
-- [ ] 8. Implement the Llm_Client and Schema_Context
-  - [ ] 8.1 Define LlmClient interface + LlmResult; build Schema_Context (allowlisted tables + columns) at startup from the SAME schema definition used by the seed/init (single source of truth) so the context and the actual database schema cannot drift. _Requirements: 1.4_
-  - [ ] 8.2 Implement optional MockLlmClient via LLM_PROVIDER=mock. The mock MUST return valid, parseable SQL answers for the 4-5 example questions so the frontend example questions work end-to-end in mock mode. _Requirements: 1.4_
-  - [ ] 8.3 Implement HttpLlmClient (Llm_Timeout; parse {sql,explanation}; failure mapping 502/503); HttpLlmClient is the default when LLM_PROVIDER != mock. _Requirements: 8.1-8.7_
-  - [ ]* 8.4 Unit tests for HttpLlmClient failure mapping. _Requirements: 8.2-8.7_
+- [x] 8. Implement the Llm_Client and Schema_Context
+  - [x] 8.1 Define LlmClient interface + LlmResult; build Schema_Context (allowlisted tables + columns) at startup from the SAME schema definition used by the seed/init (single source of truth) so the context and the actual database schema cannot drift. _Requirements: 1.4_
+  - [x] 8.2 Implement optional MockLlmClient via LLM_PROVIDER=mock. The mock MUST return valid, parseable SQL answers for the 4-5 example questions so the frontend example questions work end-to-end in mock mode. _Requirements: 1.4_
+  - [x] 8.3 Implement HttpLlmClient (Llm_Timeout; parse {sql,explanation}; failure mapping 502/503); HttpLlmClient is the default when LLM_PROVIDER != mock. _Requirements: 8.1-8.7_
+  - [x]* 8.4 Unit tests for HttpLlmClient failure mapping. _Requirements: 8.2-8.7_
 
 - [ ] 9. Implement interaction persistence and history
   - [ ] 9.1 InteractionRepository (JdbcTemplate, RW datasource): save + findRecent(50) newest-first; generated_sql nullable. _Requirements: 6.1-6.4,7.1,7.2,3.1_
