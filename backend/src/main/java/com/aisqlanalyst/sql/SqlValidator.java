@@ -103,6 +103,17 @@ public class SqlValidator {
             // Cast
             "cast");
 
+    /**
+     * The Allowlisted_Functions as a stable, sorted, immutable list. Exposed so other components
+     * (e.g. the Llm_Client, which injects the real list into its system prompt) share the single
+     * source of truth and cannot drift from what the validator enforces.
+     *
+     * @return the allowlisted function names, lower-case, sorted alphabetically.
+     */
+    public static List<String> allowlistedFunctions() {
+        return ALLOWLISTED_FUNCTIONS.stream().sorted().toList();
+    }
+
     private static final String MSG_SINGLE_SELECT = "Only a single SELECT statement is allowed.";
     private static final String MSG_UNPARSEABLE = "The generated SQL could not be parsed.";
     private static final String MSG_SELECT_ONLY = "Only SELECT statements are allowed.";
