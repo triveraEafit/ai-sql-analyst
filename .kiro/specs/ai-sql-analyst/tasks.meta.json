@@ -170,6 +170,16 @@
         "executionId": "0d4c972f-52bc-4aff-a16e-75a6a6b6ee43",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790910116066
+      },
+      {
+        "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790914040908
+      },
+      {
+        "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790914664881
       }
     ],
     "5.2 JUnit example tests for Sql_Validator (5 cases). _Requirements: 14.1,4.1,4.2,4.3,4.6,4.7_": [
@@ -177,6 +187,16 @@
         "executionId": "0d4c972f-52bc-4aff-a16e-75a6a6b6ee43",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790910116115
+      },
+      {
+        "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790914668731
+      },
+      {
+        "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790914804405
       }
     ],
     "6. Checkpoint - validator tests green": [
@@ -408,6 +428,13 @@
         "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790914029071
+      }
+    ],
+    "5. Implement the Sql_Validator (JSqlParser AST)": [
+      {
+        "executionId": "0c15c0eb-dcd5-4fd9-b37e-a92c0d78034a",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790914804510
       }
     ]
   }

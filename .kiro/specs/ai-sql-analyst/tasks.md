@@ -28,9 +28,9 @@ Backend is Spring Boot (Java) with spring-boot-starter-web, -validation, -jdbc, 
   - [x] 4.1 Create QueryRequest (@NotBlank, no @Size), QueryResponse(table,sql,explanation), InteractionSummary(generatedSql,status,latencyMs,createdAt), ErrorResponse. _Requirements: 12.3,1.1,7.1_
   - [x] 4.2 Manual Max_Question_Length check + QuestionTooLongException -> 400. _Requirements: 1.2,1.3,10.2_
 
-- [ ] 5. Implement the Sql_Validator (JSqlParser AST)
-  - [ ] 5.1 Core validation rules (single statement, SELECT-only, schema-qualified allowlisted tables, reject SELECT INTO, reject locking clauses, default-deny function allowlist, SetOperationList/UNION traversal). _Requirements: 4.1-4.8_
-  - [ ] 5.2 JUnit example tests for Sql_Validator (5 cases). _Requirements: 14.1,4.1,4.2,4.3,4.6,4.7_
+- [x] 5. Implement the Sql_Validator (JSqlParser AST)
+  - [x] 5.1 Core validation rules (single statement, SELECT-only, schema-qualified allowlisted tables, reject SELECT INTO, reject locking clauses, default-deny function allowlist, SetOperationList/UNION traversal). _Requirements: 4.1-4.8_
+  - [x] 5.2 JUnit example tests for Sql_Validator (5 cases). _Requirements: 14.1,4.1,4.2,4.3,4.6,4.7_
 
 - [ ] 6. Checkpoint - validator tests green
   - Ensure all tests pass, ask the user if questions arise.
