@@ -8,12 +8,12 @@ package com.aisqlanalyst.dto;
  * stack traces — error details that could leak sensitive information stay server-side in logs
  * (Requirements 11.2, 11.3).
  *
- * @param error   a short, stable, machine-readable error code (e.g. {@code "bad_request"}).
+ * @param code    a short, stable, machine-readable error code (e.g. {@code "bad_request"}).
  * @param message a safe, human-readable description with no sensitive details.
  */
 public record ErrorResponse(
 
-        String error,
+        String code,
 
         String message
 ) {

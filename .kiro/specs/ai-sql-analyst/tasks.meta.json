@@ -376,6 +376,16 @@
         "executionId": "0d4c972f-52bc-4aff-a16e-75a6a6b6ee43",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790910116711
+      },
+      {
+        "executionId": "20a74b13-7753-46f5-8d66-c72cab15a474",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790951768629
+      },
+      {
+        "executionId": "20a74b13-7753-46f5-8d66-c72cab15a474",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790952535648
       }
     ],
     "12.2 Global Controller_Advice mapping (400/422/504/502/503, safe bodies). _Requirements: 11.2,11.3,12.4,1.2,1.3,4.8,5.2,5.4,8.2-8.7_": [
@@ -383,6 +393,16 @@
         "executionId": "0d4c972f-52bc-4aff-a16e-75a6a6b6ee43",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790910116753
+      },
+      {
+        "executionId": "20a74b13-7753-46f5-8d66-c72cab15a474",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790951771011
+      },
+      {
+        "executionId": "20a74b13-7753-46f5-8d66-c72cab15a474",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790952537233
       }
     ],
     "12.3 CorsFilter at HIGHEST_PRECEDENCE for Frontend_Origin. _Requirements: 10.6_": [
@@ -390,6 +410,16 @@
         "executionId": "0d4c972f-52bc-4aff-a16e-75a6a6b6ee43",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790910116803
+      },
+      {
+        "executionId": "20a74b13-7753-46f5-8d66-c72cab15a474",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790952541726
+      },
+      {
+        "executionId": "20a74b13-7753-46f5-8d66-c72cab15a474",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790952939018
       }
     ],
     "12.4 Per-IP RateLimitFilter (in-memory fixed window) -> 429, below CORS precedence; trust-proxy aware. _Requirements: 9.1,9.2_": [
@@ -397,6 +427,16 @@
         "executionId": "0d4c972f-52bc-4aff-a16e-75a6a6b6ee43",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790910116970
+      },
+      {
+        "executionId": "20a74b13-7753-46f5-8d66-c72cab15a474",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790952543251
+      },
+      {
+        "executionId": "20a74b13-7753-46f5-8d66-c72cab15a474",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790952938114
       }
     ],
     "13. Checkpoint - backend wired end-to-end": [
@@ -582,6 +622,13 @@
         "executionId": "20a74b13-7753-46f5-8d66-c72cab15a474",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790951658240
+      }
+    ],
+    "12. Implement the web layer (controller, advice, filters)": [
+      {
+        "executionId": "20a74b13-7753-46f5-8d66-c72cab15a474",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790952940079
       }
     ]
   }
