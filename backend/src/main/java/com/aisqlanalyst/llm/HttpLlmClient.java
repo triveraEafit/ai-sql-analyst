@@ -238,7 +238,10 @@ public class HttpLlmClient implements LlmClient {
             throw new LlmParseException("The AI response did not include an explanation.");
         }
 
-        String sql = stripTrailingSemicolon(sqlNode.asText().trim());
+        // Collapse any run of whitespace (incl. newlines from a multi-line/pretty-printed model
+        // response) to a single space, so tokens never get concatenated (e.g. "total_spend\nFROM" ->
+        // "total_spend FROM", not "total_spendFROM") when the SQL is stored and displayed.
+        String sql = stripTrailingSemicolon(collapseWhitespace(sqlNode.asText()));
         String explanation = explanationNode.asText().trim();
         return new LlmResult(sql, explanation);
     }
@@ -265,6 +268,15 @@ public class HttpLlmClient implements LlmClient {
             }
         }
         return trimmed.strip();
+    }
+
+    /**
+     * Replaces every run of whitespace (spaces, tabs, newlines) with a single space and trims the
+     * ends. Newlines are turned into a space rather than removed, so adjacent SQL tokens on separate
+     * lines stay separated.
+     */
+    static String collapseWhitespace(String sql) {
+        return sql.replaceAll("\\s+", " ").trim();
     }
 
     private static String stripTrailingSemicolon(String sql) {

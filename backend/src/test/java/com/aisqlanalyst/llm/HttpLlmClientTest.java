@@ -101,6 +101,21 @@ class HttpLlmClientTest {
     }
 
     @Test
+    void multilineSql_collapsesNewlinesToSingleSpace_doesNotConcatenateTokens() {
+        // A pretty-printed model response with a newline between the select list and FROM must not
+        // produce "total_spendFROM"; the newline becomes a single space.
+        respondWith(200,
+                "{\"sql\": \"SELECT c.name, SUM(x) AS total_spend\\nFROM customers c\\nGROUP BY c.name\","
+                        + " \"explanation\": \"spend\"}");
+
+        LlmResult result = client().generateSql("q", "schema");
+
+        assertThat(result.sql())
+                .isEqualTo("SELECT c.name, SUM(x) AS total_spend FROM customers c GROUP BY c.name");
+        assertThat(result.sql()).doesNotContain("total_spendFROM");
+    }
+
+    @Test
     void http429_mapsToRateLimit() {
         respondWith(429, "{\"error\":\"slow down\"}");
 
