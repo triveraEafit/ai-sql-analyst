@@ -31,6 +31,15 @@ spring:
 #
 # The @Bean DataSources and transaction managers (incl. readOnlyTxManager) are
 # defined in task 3; these prefixes supply their properties.
+#
+# Lazy initialization (`initialization-fail-timeout: -1`): HikariCP's default
+# `initializationFailTimeout` is 1ms, which makes the pool open and validate an
+# initial connection the moment it is built — failing startup fast if the DB is
+# unreachable. Setting it to -1 switches the pool to lazy init: no connection is
+# attempted until the first `getConnection()`, so the application context (and
+# the @SpringBootTest context-load tests, which have no real database) starts
+# without contacting PostgreSQL. The pool still fails on first actual use if the
+# DB is genuinely down. Pool sizes are kept small and sane for this workload.
 # ---------------------------------------------------------------------------
 datasource:
   read-write:
@@ -38,11 +47,19 @@ datasource:
     username: ${DB_RW_USER}
     password: ${DB_RW_PASSWORD}
     driver-class-name: org.postgresql.Driver
+    pool-name: rw-pool
+    maximum-pool-size: 10
+    minimum-idle: 0
+    initialization-fail-timeout: -1
   read-only:
     jdbc-url: ${DB_URL}
     username: ${DB_RO_USER}
     password: ${DB_RO_PASSWORD}
     driver-class-name: org.postgresql.Driver
+    pool-name: ro-pool
+    maximum-pool-size: 10
+    minimum-idle: 0
+    initialization-fail-timeout: -1
 
 # ---------------------------------------------------------------------------
 # Application tunables (Requirement 10). Binding classes arrive in task 1.2.
