@@ -50,9 +50,9 @@ Backend is Spring Boot (Java) with spring-boot-starter-web, -validation, -jdbc, 
   - [x] 9.1 InteractionRepository (JdbcTemplate, RW datasource): save + findRecent(50) newest-first; generated_sql nullable. _Requirements: 6.1-6.4,7.1,7.2,3.1_
   - [x]* 9.2 Integration tests for persistence and history. _Requirements: 6.1,6.2,7.1,7.2_
 
-- [ ] 10. Implement the Query_Service orchestration
-  - [ ] 10.1 generate -> validate -> execute -> single retry on correctable error -> persist every outcome. When the single retry also fails, persist a FAILED interaction and throw QueryFailedException (-> 422). _Requirements: 1.1,5.1,5.2,5.3,5.4,4.8,6.1,6.2,6.4_
-  - [ ] 10.2 JUnit example tests for Query_Service (6 cases, mocked Llm_Client). _Requirements: 14.2,1.1,4.8,5.1,5.2,5.3,5.4,6.1,8.1_
+- [x] 10. Implement the Query_Service orchestration
+  - [x] 10.1 generate -> validate -> execute -> single retry on correctable error -> persist every outcome. When the single retry also fails, persist a FAILED interaction and throw QueryFailedException (-> 422). _Requirements: 1.1,5.1,5.2,5.3,5.4,4.8,6.1,6.2,6.4_
+  - [x] 10.2 JUnit example tests for Query_Service (6 cases, mocked Llm_Client). _Requirements: 14.2,1.1,4.8,5.1,5.2,5.3,5.4,6.1,8.1_
 
 - [ ] 11. Checkpoint - service and validator tests green
   - Ensure all tests pass, ask the user if questions arise.
