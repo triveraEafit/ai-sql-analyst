@@ -1,0 +1,49 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      # Consumed by db/01-init.sh to set the read_only_role password.
+      RO_DB_PASSWORD: ${DB_RO_PASSWORD}
+    volumes:
+      # Schema, seed and 01-init.sh run on first init (empty data volume).
+      - ./db:/docker-entrypoint-initdb.d:ro
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build: ./backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/postgres
+      DB_RW_USER: postgres
+      DB_RW_PASSWORD: ${POSTGRES_PASSWORD}
+      DB_RO_USER: read_only_role
+      DB_RO_PASSWORD: ${DB_RO_PASSWORD}
+      FRONTEND_ORIGIN: http://localhost:3000
+      LLM_PROVIDER: ${LLM_PROVIDER:-mock}
+      LLM_BASE_URL: ${LLM_BASE_URL:-}
+      LLM_MODEL: ${LLM_MODEL:-}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:8080
+        NEXT_PUBLIC_MAX_QUESTION_LENGTH: "300"
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+
+volumes:
+  pgdata:
