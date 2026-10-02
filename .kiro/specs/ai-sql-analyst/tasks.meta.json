@@ -318,6 +318,16 @@
         "executionId": "0d4c972f-52bc-4aff-a16e-75a6a6b6ee43",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790910116539
+      },
+      {
+        "executionId": "562dd331-db51-4e77-adc1-73e5f749b573",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790918224721
+      },
+      {
+        "executionId": "562dd331-db51-4e77-adc1-73e5f749b573",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790918474843
       }
     ],
     "10.1 generate -> validate -> execute -> single retry on correctable error -> persist every outcome. When the single retry also fails, persist a FAILED interaction and throw QueryFailedException (-> 422). _Requirements: 1.1,5.1,5.2,5.3,5.4,4.8,6.1,6.2,6.4_": [
@@ -526,6 +536,25 @@
         "executionId": "562dd331-db51-4e77-adc1-73e5f749b573",
         "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
         "timestamp": 1790918036285
+      }
+    ],
+    "9. Implement interaction persistence and history": [
+      {
+        "executionId": "562dd331-db51-4e77-adc1-73e5f749b573",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790918474977
+      }
+    ],
+    "9.2 Integration tests for persistence and history. _Requirements: 6.1,6.2,7.1,7.2_": [
+      {
+        "executionId": "562dd331-db51-4e77-adc1-73e5f749b573",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790918479527
+      },
+      {
+        "executionId": "562dd331-db51-4e77-adc1-73e5f749b573",
+        "chatSessionId": "sess_7b04f077-dd54-4b8a-9466-9395aaf7e42e",
+        "timestamp": 1790918801114
       }
     ]
   }

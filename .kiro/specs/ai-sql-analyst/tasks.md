@@ -46,9 +46,9 @@ Backend is Spring Boot (Java) with spring-boot-starter-web, -validation, -jdbc, 
   - [x] 8.3 Implement HttpLlmClient (Llm_Timeout; parse {sql,explanation}; failure mapping 502/503); HttpLlmClient is the default when LLM_PROVIDER != mock. _Requirements: 8.1-8.7_
   - [x]* 8.4 Unit tests for HttpLlmClient failure mapping. _Requirements: 8.2-8.7_
 
-- [ ] 9. Implement interaction persistence and history
-  - [ ] 9.1 InteractionRepository (JdbcTemplate, RW datasource): save + findRecent(50) newest-first; generated_sql nullable. _Requirements: 6.1-6.4,7.1,7.2,3.1_
-  - [ ]* 9.2 Integration tests for persistence and history. _Requirements: 6.1,6.2,7.1,7.2_
+- [x] 9. Implement interaction persistence and history
+  - [x] 9.1 InteractionRepository (JdbcTemplate, RW datasource): save + findRecent(50) newest-first; generated_sql nullable. _Requirements: 6.1-6.4,7.1,7.2,3.1_
+  - [x]* 9.2 Integration tests for persistence and history. _Requirements: 6.1,6.2,7.1,7.2_
 
 - [ ] 10. Implement the Query_Service orchestration
   - [ ] 10.1 generate -> validate -> execute -> single retry on correctable error -> persist every outcome. When the single retry also fails, persist a FAILED interaction and throw QueryFailedException (-> 422). _Requirements: 1.1,5.1,5.2,5.3,5.4,4.8,6.1,6.2,6.4_
